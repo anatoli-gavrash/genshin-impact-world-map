@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.root {
+  display: flex;
+}
+
+.root div img {
+  display: block;
+  width: 128px;
+}

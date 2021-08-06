@@ -1,0 +1,37 @@
+.map-navigation {
+  display: flex;
+  column-gap: 5px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 210px;
+  height: 50px;
+
+  .map-navigation__button-change-display,
+  .map-navigation__button-centering,
+  .map-navigation__button-plus,
+  .map-navigation__button-minus {
+    width: 50px;
+    height: 50px;
+    
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .map-navigation__button-change-display {
+    background-image: url('/assets/images/icons/eye.svg');
+  }
+
+  .map-navigation__button-centering {
+    background-image: url('/assets/images/icons/centering.svg');
+  }
+
+  .map-navigation__button-plus {
+    background-image: url('/assets/images/icons/plus.svg');
+  }
+
+  .map-navigation__button-minus {
+    background-image: url('/assets/images/icons/minus.svg');
+  }
+}
