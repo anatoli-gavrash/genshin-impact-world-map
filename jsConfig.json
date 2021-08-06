@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "assets/*": ["./assets/*"],
-      "components/*": ["./components/*"],
-      "storage/*": ["./storage/*"]
-    }
-  }
+    "baseUrl": "src"
+  },
+  "include": [
+    "src"
+  ]
 }
