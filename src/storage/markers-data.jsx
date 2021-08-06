@@ -11,11 +11,9 @@ import iconShrine from 'assets/images/icons/shrine.svg';
 import iconRegion from 'assets/images/icons/region.png';
 import iconBook from 'assets/images/icons/book.svg';
 import iconPage from 'assets/images/icons/page.svg';
-import iconRip from 'assets/images/icons/rip.svg';
 import iconSeaBox from 'assets/images/icons/sea-box.svg';
 import iconKey from 'assets/images/icons/key.svg';
 import iconStoneSlate from 'assets/images/icons/stone-slate.png';
-import iconQuestionMark from 'assets/images/icons/question-mark.svg';
 
 const markersData = [
   {
