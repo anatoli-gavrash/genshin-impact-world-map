@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
-import 'index.scss';
+import './index.scss';
 import App from 'components/app/app.jsx';
 import storage from 'storage/storage.jsx';
 
