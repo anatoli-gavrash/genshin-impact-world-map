@@ -7,12 +7,13 @@ import './marker-info.scss';
 const MarkerInfo = () => {
   const dispatch = useDispatch();
   const { idImage } = useSelector((state) => state.worldMapStore.mapValues);
+  const { currentMap } = useSelector((state) => state.worldMapStore);
 
   return (
     <div className="marker-info">
       <div className="marker-info__wrapper">
         <button className="marker-info__close-button" onClick={() => dispatch(showMarkerInfo(false))}></button>
-        <img className="marker-info__image" src={`./images/teyvat/${idImage}.jpg`} alt={idImage}/>
+        <img className="marker-info__image" src={`./images/${currentMap}/${idImage}.jpg`} alt={idImage}/>
       </div>
     </div>
   );

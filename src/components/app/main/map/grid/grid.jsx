@@ -6,12 +6,19 @@ import { changeScrollPosition, showAddMarker } from 'storage/actions/actions';
 
 import './grid.scss';
 import Markers from './markers/markers.jsx';
-import {  } from 'storage/actions/actions';
 
 const GridMap = () => {
   const dispatch = useDispatch();
+  const { currentMap } = useSelector((state) => state.worldMapStore);
   const { scale } = useSelector((state) => state.worldMapStore.mapValues.positioning);
-  const baseUrl = 'https://cdn.mapgenie.io/images/tiles/genshin-impact/teyvat/default-v4/';
+
+  const urls = {
+    "teyvat": 'https://cdn.mapgenie.io/images/tiles/genshin-impact/teyvat/default-v7/',
+    "enkanomiya": 'https://cdn.mapgenie.io/images/tiles/genshin-impact/enkanomiya/default-v1/',
+    "enkanomiya-event": 'https://cdn.mapgenie.io/images/tiles/genshin-impact/enkanomiya/default-v1/'
+  };
+
+  const baseUrl = urls[currentMap];
 
   // (scale=10, col-min=9, col-max=11 line-min=9, line-max=11)
   // (scale=11, col-min=19, col-max=22 line-min=19, line-max=22)

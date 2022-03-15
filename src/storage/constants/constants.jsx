@@ -8,3 +8,4 @@ export const SHOW_ADD_MARKER = 'SHOW_ADD_MARKER';
 export const CHANGE_ID_IMAGE = 'CHANGE_ID_IMAGE';
 export const CHANGE_OPACITY = 'CHANGE_OPACITY';
 export const CHANGE_DISPLAY = 'CHANGE_DISPLAY';
+export const CHANGE_MAP = 'CHANGE_MAP';

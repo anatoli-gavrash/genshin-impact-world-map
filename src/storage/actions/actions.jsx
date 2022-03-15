@@ -7,7 +7,8 @@ import { ADD_USER,
          SHOW_ADD_MARKER,
          CHANGE_ID_IMAGE,
          CHANGE_OPACITY,
-         CHANGE_DISPLAY } from '../constants/constants.jsx';
+         CHANGE_DISPLAY,
+         CHANGE_MAP } from '../constants/constants.jsx';
 
 export const addUser = (value) => {
   return {
@@ -75,6 +76,13 @@ export const changeOpacity = (value) => {
 export const changeDisplay = (value) => {
   return {
     type: CHANGE_DISPLAY,
+    payload: value
+  };
+};
+
+export const changeMap = (value) => {
+  return {
+    type: CHANGE_MAP,
     payload: value
   };
 };

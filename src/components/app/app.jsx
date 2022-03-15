@@ -6,17 +6,31 @@ import Header from './header/header.jsx';
 import Main from './main/main.jsx';
 
 const App = () => {
-  const { markersData } = useSelector((state) => state.worldMapStore);
+  const { markersData, currentMap } = useSelector((state) => state.worldMapStore);
 
   useEffect(() => {
     const newStorage = (data) => {
-      return data.map(({ idImage, opacity, display }) => {
-        return [idImage, opacity, display];
+      const newData = {};
+      
+      const newArray = Object.entries(data).map((markersData) => {
+        return [markersData[0], markersData[1].map(({ idImage, opacity, display }) => {
+          return [idImage, opacity, display];
+        })];
       });
+
+      newArray.forEach((array) => {
+        newData[array[0]] = array[1];
+      });
+
+      return newData;
     };
 
     localStorage.setItem('markers', JSON.stringify(newStorage(markersData)));
   }, [markersData]);
+
+  useEffect(() => {
+    localStorage.setItem('current-map', currentMap);
+  }, [currentMap]);
 
   return (
     <React.Fragment>

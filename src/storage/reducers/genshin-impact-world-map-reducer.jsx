@@ -8,7 +8,8 @@ import { ADD_USER,
          SHOW_ADD_MARKER,
          CHANGE_ID_IMAGE,
          CHANGE_OPACITY,
-         CHANGE_DISPLAY } from '../constants/constants.jsx';
+         CHANGE_DISPLAY,
+         CHANGE_MAP } from '../constants/constants.jsx';
 
 const genshinImpactWorldMapReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -80,18 +81,29 @@ const genshinImpactWorldMapReducer = (state = initialState, action) => {
     case CHANGE_OPACITY:
       return {
         ...state,
-        markersData: state.markersData.map((marker) => {
-          return marker.idImage === action.payload.idImage
-            ? { ...marker, opacity: action.payload.opacity }
-            : marker;
-        })
+        markersData: {
+          ...state.markersData,
+          [action.payload.currentMap]: state.markersData[action.payload.currentMap].map((marker) => {
+            return marker.idImage === action.payload.idImage
+              ? { ...marker, opacity: action.payload.opacity }
+              : marker;
+          })
+        }
       };
     case CHANGE_DISPLAY:
       return {
         ...state,
-        markersData: state.markersData.map((marker) => {
-          return { ...marker, display: action.payload };
-        })
+        markersData: {
+          ...state.markersData,
+          [action.payload.currentMap]: state.markersData[action.payload.currentMap].map((marker) => {
+            return { ...marker, display: action.payload.display };
+          })
+        }
+      };
+    case CHANGE_MAP:
+      return {
+        ...state,
+        currentMap: action.payload
       };
     default:
       return state;

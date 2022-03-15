@@ -5,7 +5,8 @@ import './marker-form.scss';
 import { useSelector } from 'react-redux';
 
 const MarkerForm = () => {
-  const { markersData } = useSelector((state) => state.worldMapStore);
+  const { currentMap } = useSelector((state) => state.worldMapStore);
+  const markersData = useSelector((state) => state.worldMapStore.markersData[currentMap]);
   const { x, y } = useSelector((state) => state.worldMapStore.mapValues.positioning);
 
   const validate = (values) => {
@@ -32,7 +33,7 @@ const MarkerForm = () => {
   return (
     <Formik
       initialValues={{
-        id: 3000000 + markersData.length,
+        id: markersData[0].idImage + markersData.length,
         name: '',
         type: 'iconCommonChest',
         description: '',
@@ -64,7 +65,7 @@ const MarkerForm = () => {
           <div className="marker-field__field-wrapper">
             <label className="marker-form__label" htmlFor="name">Name</label>
             <Field
-              className="marker-form__select"
+              className="marker-form__text"
               type="text"
               name="name"
             />
@@ -86,6 +87,7 @@ const MarkerForm = () => {
               <option className="marker-field__option" value="iconExquisiteChest">Богатый сундук</option>
               <option className="marker-field__option" value="iconPreciousChest">Драгоценный сундук</option>
               <option className="marker-field__option" value="iconLuxuriousChest">Роскошный сундук</option>
+              <option className="marker-field__option" value="iconBlueprintChest">Сундук с чертежом</option>
               <option className="marker-field__option" value="iconElectroculus">Электрокул</option>
               <option className="marker-field__option" value="iconSeelie">Фея</option>
               <option className="marker-field__option" value="iconElectroSeelie">Электро-фея</option>
@@ -96,9 +98,14 @@ const MarkerForm = () => {
               <option className="marker-field__option" value="iconPage">Страница</option>
               <option className="marker-field__option" value="iconRip">Надгробие</option>
               <option className="marker-field__option" value="iconSeaBox">Морской ящик</option>
+              <option className="marker-field__option" value="iconBubble">Пузырь</option>
               <option className="marker-field__option" value="iconKey">Ключ</option>
               <option className="marker-field__option" value="iconStoneSlate">Древняя стела</option>
               <option className="marker-field__option" value="iconQuestionMark">Знак вопроса</option>
+              <option className="marker-field__option" value="iconFoxStatue">Статуя лисы</option>
+              <option className="marker-field__option" value="iconOwlStatue">Статуя совы</option>
+              <option className="marker-field__option" value="iconKeySigil">Знак-ключ</option>
+              <option className="marker-field__option" value="iconStoneChest">Каменный сундук</option>
             </Field>
             <ErrorMessage
               component="label"
@@ -110,8 +117,8 @@ const MarkerForm = () => {
           <div className="marker-field__field-wrapper">
             <label className="marker-form__label" htmlFor="description">Description</label>
             <Field
-              className="marker-form__select"
-              type="textarea"
+              className="marker-form__textarea"
+              type="text"
               name="description"
             />
             <ErrorMessage
@@ -124,7 +131,7 @@ const MarkerForm = () => {
           <div className="marker-field__field-wrapper">
             <label className="marker-form__label" htmlFor="positionX">Position-X</label>
             <Field
-              className="marker-form__select"
+              className="marker-form__text"
               type="text"
               name="positionX"
             />
@@ -138,7 +145,7 @@ const MarkerForm = () => {
           <div className="marker-field__field-wrapper">
             <label className="marker-form__label" htmlFor="positionY">Position-Y</label>
             <Field
-              className="marker-form__select"
+              className="marker-form__text"
               type="text"
               name="positionY"
             />

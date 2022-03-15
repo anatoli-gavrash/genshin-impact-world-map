@@ -7,18 +7,18 @@ import iconMarker from 'assets/images/icons/marker.svg';
 import { changeOpacity } from 'storage/actions/actions.jsx';
 
 const Markers = () => {
-  const { markersData } = useSelector((state) => state.worldMapStore);
+  const { currentMap } = useSelector((state) => state.worldMapStore);
+  const markersData = useSelector((state) => state.worldMapStore.markersData[currentMap]);
   const dispatch = useDispatch();
-
 
   const openModalWindow = (idImage) => {
     dispatch(showMarkerInfo(true));
     dispatch(changeIdImage(idImage));
   };
 
-  const rightClick = (event, idImage, opacity) => {
+  const rightClick = (event, currentMap, idImage, opacity) => {
     event.preventDefault();
-    dispatch(changeOpacity({ idImage, opacity: opacity === 1 ? 0.3 : 1 }));
+    dispatch(changeOpacity({ currentMap, idImage, opacity: opacity === 1 ? 0.3 : 1 }));
   };
 
   return ( markersData.map(({ positionX, positionY, type, idImage, opacity, display }) => (
@@ -32,7 +32,7 @@ const Markers = () => {
            }}
       >
         <img className="marker-image" src={iconMarker} alt="marker"/>
-        <img className="icon-image" src={type} alt="icon" onClick={() => openModalWindow(idImage)} onContextMenu={(event) => rightClick(event, idImage, opacity)}/>
+        <img className="icon-image" src={type} alt="icon" onClick={() => openModalWindow(idImage)} onContextMenu={(event) => rightClick(event, currentMap, idImage, opacity)}/>
       </div>
     ))
   );
