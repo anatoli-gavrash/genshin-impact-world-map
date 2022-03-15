@@ -5,13 +5,7 @@ import iconLuxuriousChest from 'assets/images/icons/luxurious-chest.svg';
 import iconSeelie from 'assets/images/icons/seelie.svg';
 import iconElectroSeelie from 'assets/images/icons/electro-seelie.svg';
 import iconChallenge from 'assets/images/icons/challenge.svg';
-import iconBook from 'assets/images/icons/book.svg';
-import iconRip from 'assets/images/icons/rip.svg';
-import iconSeaBox from 'assets/images/icons/sea-box.svg';
 import iconStoneSlate from 'assets/images/icons/stone-slate.png';
-import iconQuestionMark from 'assets/images/icons/question-mark.svg';
-import iconKeySigil from 'assets/images/icons/key-sigil.svg';
-import iconStoneChest from 'assets/images/icons/stone-chest.svg';
 
 const markersEnkanomiaEvent = [
   {
