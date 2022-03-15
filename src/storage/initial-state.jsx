@@ -32,7 +32,7 @@ const loadLocalMarkers = () => {
 };
 
 const getMap = () => {
-  return localStorage.getItem('current-map');
+  return localStorage.getItem('current-map') || 'teyvat';
 }
 
 const initialState = {
